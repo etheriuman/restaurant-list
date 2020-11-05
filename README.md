@@ -1,7 +1,6 @@
 # Restaurant Collection
   A web application that provides users collect restaurants and view restaurants info.
 
-  Checkout the [website](https://etheriuman.github.io/restaurant-list/) !
 
 ![Image](https://raw.githubusercontent.com/etheriuman/restaurant-list/master/restaurant-list_image.png)
 ---
