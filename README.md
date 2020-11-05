@@ -20,7 +20,7 @@
 - ## Application installation :
 1. ### For macOS users: open Terminal, Widows users should open Git Bash as well.
 
-2. To clone this project, you should command the message in your Terminal or Git Bash.
+2. To clone this project, you should command this in your Terminal or Git Bash.
 ```
 git clone https://github.com/etheriuman/restaurant-list.git
 ```
@@ -32,7 +32,7 @@ cd restaurant-list
 ```
 npm init -y
 ```
-5. Install all dependencies with npm.
+5. Install all dependencies needed with npm.
 ```
 npm i
 ```
