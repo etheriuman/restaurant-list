@@ -38,7 +38,7 @@ npm i
 ```
 6. Start running the server with command below.
 ```
-npm ren dev
+npm run dev
 ```
 7. It should print the message below, copy the address and paste it into your browser.
 ```
