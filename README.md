@@ -4,12 +4,14 @@
 
 ![Image](https://raw.githubusercontent.com/etheriuman/restaurant-list/master/restaurant-list_image.png)
 ---
-- ## Dependencies used:
-1. Node.js
-2. npm
-3. Express
-4. Express-handlebars
-5. Nodemon
+- ## Environment :
+  Node.js
+
+- ## Dependencies used :
+1. npm
+2. Express
+3. Express-handlebars
+4. Nodemon
 
 - ## Features :
 1. View all collected restaurant in the index page.
