@@ -1,7 +1,12 @@
 // insert dependencies and documents
 const express = require('express')
 const exphbs = require('express-handlebars')
+const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 const restaurantList = require('./restaurant.json')
+const Restaurant = require('./models/restaurant')
+const restaurant = require('./models/restaurant')
+
 
 // set express to app
 const app = express()
@@ -12,32 +17,105 @@ const port = 3000
 app.set('view engine', 'handlebars')
 // set default layout
 app.engine('handlebars', exphbs({defaultLayout: 'main'}))
-// set static documents file
-app.use(express.static('public'))
+// set static documents file and body parser
+app.use(express.static('public'), bodyParser.urlencoded({extended: true}))
+
+// connect to database
+mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
+// connection status
+const db = mongoose.connection
+// connect fail
+db.on('error', () => {
+  console.log('mongodb error!')
+})
+// connect succeed
+db.once('open', () => {
+  console.log('mongodb connected!')
+})
 
 
 // ---------------- route setting ------------------
 
 // index page requesting
 app.get('/', (req, res) => {
-  res.render('index', {restaurants: restaurantList.results, css: 'index.css'})
+  Restaurant.find()
+            .lean()
+            .then(restaurants => res.render('index', {restaurants, css: 'index.css'}))
+            .catch(error => console.log(error))
 })
 
 // show page requesting
-app.get('/restaurants/:restaurant_id', (req, res) => {
-  const restaurant = restaurantList.results.find(restaurant => {
-    return restaurant.id.toString() === req.params.restaurant_id
-  })
-  res.render('show', {restaurant: restaurant, css: 'show.css'})
+app.get('/restaurants/:id', (req, res) => {
+  const id = req.params.id
+  Restaurant.findById(id)
+            .lean()
+            .then(restaurant => res.render('show', {restaurant, css: 'show.css'}))
+            .catch(error => console.log(error))
 })
 
-// searching request
+// searching requesting
 app.get('/search', (req, res) => {
-  const keyword = req.query.keyword
-  const filteredRestaurant = restaurantList.results.filter(restaurant => {
-    return restaurant.name.trim().toLowerCase().includes(keyword.trim().toLowerCase())
-  })
-  res.render('index', {restaurants: filteredRestaurant, css: 'index.css', keyword: keyword})
+  let keyword = req.query.keyword.trim()
+  // find 
+  Restaurant.find({$or:[{name: new RegExp(keyword, 'i')}, {category: new RegExp(keyword, 'i')}]})
+            .lean()
+            .then(restaurants => {
+              // exception
+              if (!restaurants.length) {
+                keyword = `你的收藏沒有"${keyword}"的相關項目唷！`
+              }
+              // do the searching
+              res.render('index', {restaurants, keyword, css: 'index.css'})
+            })
+            .catch(error => console.log(error))
+})
+
+// to edit page requesting
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  Restaurant.findById(id)
+            .lean()
+            .then(restaurant => res.render('edit', {restaurant, css: 'show.css'}))
+            .catch(error => console.log(error))
+})
+
+// edit requesting
+app.post('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+
+  const name = req.body.name
+  const category = req.body.category
+  const location = req.body.location
+  const google_map = req.body.google_map
+  const phone = req.body.phone
+  const rating = req.body.rating
+  const image = req.body.image
+  const description = req.body.description
+  
+  Restaurant.findById(id)
+            .then(restaurant => {
+              restaurant.name = name
+              restaurant.category = category
+              restaurant.location = location
+              restaurant.google_map = google_map
+              restaurant.phone = phone
+              restaurant.rating = rating
+              restaurant.image = image
+              restaurant.description = description
+              return restaurant.save()
+            })
+            .then(() => res.redirect(`/restaurants/${id}`))
+            .catch(error => console.log(error))
+})
+
+// delete requesting
+app.post('/restaurants/:id/delete', (req, res) => {
+  const id = req.params.id
+  Restaurant.findById(id)
+            .then(restaurant => restaurant.remove())
+            .then(() => res.redirect('/'))
+            .catch(error => console.log(error))
+
 })
 
 // --------------- localhost listenig --------------------

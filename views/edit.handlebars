@@ -1,0 +1,87 @@
+
+<form action="/restaurants/{{restaurant._id}}/edit" method="POST">
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-12 col-md-10 mx-auto">
+
+        {{!-- name --}}
+        <div class="form-group row mb-2">
+            <label class="text-secondary col-sm-2 my-2 text-right" for="name">
+              <i class="fas fa-utensils pr-2"></i>
+              名稱：
+            </label>
+            <input type="text" class="form-control col-sm-9" value="{{restaurant.name}}" id="name" name="name" required>
+        </div>
+
+        {{!-- category --}}
+        <div class="form-group row mb-2">
+            <label class="text-secondary col-sm-2 my-2 text-right" for="category">
+              <i class="fas fa-utensils pr-2"></i>
+              類別：
+            </label>
+            <input type="text" class="form-control col-sm-9" value="{{restaurant.category}}" id="category" name="category" required>
+        </div>
+
+        {{!-- location --}}
+        <div class="form-group row mb-2">
+            <label class="text-secondary col-sm-2 my-2 text-right" for="location">
+              <i class="fas fa-utensils pr-2"></i>
+              地址：
+            </label>
+            <input type="text" class="form-control col-sm-9" value="{{restaurant.location}}" id="location" name="location" required>
+        </div>
+
+        {{!-- google map --}}
+        <div class="form-group row mb-2">
+            <label class="text-secondary col-sm-2 my-2 text-right" for="google_map">
+              <i class="fas fa-utensils pr-2"></i>
+              地圖：
+            </label>
+            <input type="text" class="form-control col-sm-9" value="{{restaurant.google_map}}" id="google_map" name="google_map">
+        </div>
+
+        {{!-- phone --}}
+        <div class="form-group row mb-2">
+            <label class="text-secondary col-sm-2 my-2 text-right" for="phone">
+              <i class="fas fa-utensils pr-2"></i>
+              電話：
+            </label>
+            <input type="text" class="form-control col-sm-9" value="{{restaurant.phone}}" id="phone" name="phone" required>
+        </div>
+
+        {{!-- rating --}}
+        <div class="form-group row mb-2">
+            <label class="text-secondary col-sm-2 my-2 text-right" for="rating">
+              <i class="fas fa-utensils pr-2"></i>
+              評分：
+            </label>
+            <input type="number" min="0" max="5" step=".1" class="form-control col-sm-9" value="{{restaurant.rating}}" id="rating" name="rating" required>
+        </div>
+
+        {{!-- image --}}
+        <div class="form-group row mb-2">
+            <label class="text-secondary col-sm-2 my-2 text-right" for="image">
+              <i class="fas fa-utensils pr-2"></i>
+              圖片：
+            </label>
+            <input type="text" class="form-control col-sm-9" value="{{restaurant.image}}" id="image" name="image" required>
+        </div>
+
+        {{!-- description --}}
+        <div class="form-group row mb-2">
+            <label class="text-secondary col-sm-2 my-2 text-right" for="description">
+              <i class="fas fa-utensils pr-2"></i>
+              簡介：
+            </label>
+            <textarea class="form-control col-sm-9" rows="8" id="description" name="description" required>{{restaurant.description}}</textarea>
+        </div>
+
+        {{!-- dubmit button --}}
+        <div class="row col-11 justify-content-end">
+          <button type="submit" class="btn btn-outline-primary">提交</button>
+          <a class="btn btn-secondary ml-3" href="/" role="button">回到主頁</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
