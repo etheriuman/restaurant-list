@@ -3,9 +3,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const restaurantList = require('./restaurant.json')
 const Restaurant = require('./models/restaurant')
-const restaurant = require('./models/restaurant')
 
 
 // set express to app
@@ -95,15 +93,15 @@ app.post('/restaurants/new', (req, res) => {
   const image = req.body.image
   const description = req.body.description
   Restaurant.create({
-                name,
-                category,
-                location,
-                google_map,
-                phone,
-                rating,
-                image,
-                description
-              })
+              name,
+              category,
+              location,
+              google_map,
+              phone,
+              rating,
+              image,
+              description
+            })
             .then(() => res.redirect('/'))
             .catch(error => console.log(error))
 })
