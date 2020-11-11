@@ -1,22 +1,28 @@
 # Restaurant Collection
-  A web application that provides users collect restaurants and view restaurants info.
+  A web application that provides users to collect restaurants as well as view or edit restaurants info.
 
 
 ![Image](https://raw.githubusercontent.com/etheriuman/restaurant-list/master/restaurant-list_image.png)
 ---
-- ## Environment :
+- ## Environment required:
   Node.js
+
+- ## Database required:
+  MongoDB
 
 - ## Dependencies used :
 1. npm
 2. Express
 3. Express-handlebars
-4. Nodemon
+4. Mongoose
+5. Body-parser
+6. Nodemon
 
 - ## Features :
 1. View all collected restaurant in the index page.
-2. Checkout more restaurant information with clicking the image card in the index page.
+2. Checkout more restaurant information by clicking cards in the index page.
 3. Search restaurants with search bar.
+4. Edit and delete restaurants.
 
 - ## Application installation :
 1. ### For macOS users: open Terminal, Widows users should open Git Bash as well.
@@ -37,11 +43,15 @@ npm init -y
 ```
 npm i
 ```
-6. Start running the server with command below.
+6. Store seed data into your mongoDB
+```
+npm run seed
+```
+7. Start running the server with command below.
 ```
 npm run dev
 ```
-7. It should print the message below, copy the address and paste it into your browser.
+8. It should print the message below, copy the address and paste it into your browser.
 ```
 this server is now running on http://localhost:3000
 ```
