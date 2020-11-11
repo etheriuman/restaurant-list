@@ -115,7 +115,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
   Restaurant.findById(id)
             .then(restaurant => {
               restaurant = Object.assign(restaurant, req.body)
-              return restaurant.save()
+              restaurant.save()
             })
             .then(() => res.redirect(`/restaurants/${id}`))
             .catch(error => console.log(error))

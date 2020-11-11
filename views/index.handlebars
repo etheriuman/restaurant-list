@@ -18,12 +18,11 @@
 
 <!-- mian content -->
 <div class="container mt-5">
-  <div class="row">
-    <div class="card-columns">
+  <div class="row justify-content-start">
     {{#each restaurants}}
-      <div class="card mb-3">
+      <div class="card col-12 col-sm-4 col-md-3 mb-5 mx-4 p-0">
         <a href="/restaurants/{{this._id}}" class="text-secondary">
-          <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
+          <img class="card-img-top" src="{{this.image}}" onerror="this.src='https://www.wwe.com/f/styles/og_image/public/all/2019/10/RAW_06202016rf_1606--3d3997f53e6f3e9277cd5a67fbd8f31f.jpg';" alt="{{this.name}}">
           <div class="card-body p-3">
             <h6 class="card-title mb-1">{{this.name}}</h6>
             <div class="restaurant-category mb-1">
@@ -45,6 +44,5 @@
         </div>
       </div>
     {{/each}}
-    </div>
   </div>
 </div>
