@@ -44,6 +44,11 @@ app.get('/', (req, res) => {
             .catch(error => console.log(error))
 })
 
+// to create page requesting
+app.get('/restaurants/new', (req, res) => {
+  res.render('new', {css: 'show.css'})
+})
+
 // show page requesting
 app.get('/restaurants/:id', (req, res) => {
   const id = req.params.id
@@ -56,7 +61,7 @@ app.get('/restaurants/:id', (req, res) => {
 // searching requesting
 app.get('/search', (req, res) => {
   let keyword = req.query.keyword.trim()
-  // find 
+  // find   
   Restaurant.find({$or:[{name: new RegExp(keyword, 'i')}, {category: new RegExp(keyword, 'i')}]})
             .lean()
             .then(restaurants => {
@@ -79,10 +84,8 @@ app.get('/restaurants/:id/edit', (req, res) => {
             .catch(error => console.log(error))
 })
 
-// edit requesting
-app.post('/restaurants/:id/edit', (req, res) => {
-  const id = req.params.id
-
+// create requesting
+app.post('/restaurants/new', (req, res) => {
   const name = req.body.name
   const category = req.body.category
   const location = req.body.location
@@ -91,17 +94,27 @@ app.post('/restaurants/:id/edit', (req, res) => {
   const rating = req.body.rating
   const image = req.body.image
   const description = req.body.description
-  
+  Restaurant.create({
+                name,
+                category,
+                location,
+                google_map,
+                phone,
+                rating,
+                image,
+                description
+              })
+            .then(() => res.redirect('/'))
+            .catch(error => console.log(error))
+})
+
+// edit requesting
+app.post('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+
   Restaurant.findById(id)
             .then(restaurant => {
-              restaurant.name = name
-              restaurant.category = category
-              restaurant.location = location
-              restaurant.google_map = google_map
-              restaurant.phone = phone
-              restaurant.rating = rating
-              restaurant.image = image
-              restaurant.description = description
+              restaurant = Object.assign(restaurant, req.body)
               return restaurant.save()
             })
             .then(() => res.redirect(`/restaurants/${id}`))
@@ -115,7 +128,6 @@ app.post('/restaurants/:id/delete', (req, res) => {
             .then(restaurant => restaurant.remove())
             .then(() => res.redirect('/'))
             .catch(error => console.log(error))
-
 })
 
 // --------------- localhost listenig --------------------

@@ -1,5 +1,5 @@
 
-<form action="/restaurants/{{restaurant._id}}/edit" method="POST">
+<form action="/restaurants/new" method="POST">
   <div class="container my-5">
     <div class="row">
       <div class="col-12 col-md-10 mx-auto">
@@ -10,7 +10,7 @@
               <i class="fas fa-utensils pr-2"></i>
               名稱：
             </label>
-            <input type="text" class="form-control col-sm-9" value="{{restaurant.name}}" placeholder="餐廳名稱" id="name" name="name" required>
+            <input type="text" class="form-control col-sm-9" placeholder="餐廳名稱" id="name" name="name" required>
         </div>
 
         {{!-- category --}}
@@ -19,7 +19,7 @@
               <i class="fas fa-utensils pr-2"></i>
               類別：
             </label>
-            <input type="text" class="form-control col-sm-9" value="{{restaurant.category}}" placeholder="餐廳類別" id="category" name="category" required>
+            <input type="text" class="form-control col-sm-9" placeholder="餐廳類別" id="category" name="category" required>
         </div>
 
         {{!-- location --}}
@@ -28,7 +28,7 @@
               <i class="fas fa-utensils pr-2"></i>
               地址：
             </label>
-            <input type="text" class="form-control col-sm-9" value="{{restaurant.location}}" placeholder="餐廳地址" id="location" name="location" required>
+            <input type="text" class="form-control col-sm-9" placeholder="餐廳地址" id="location" name="location" required>
         </div>
 
         {{!-- google map --}}
@@ -37,7 +37,7 @@
               <i class="fas fa-utensils pr-2"></i>
               地圖：
             </label>
-            <input type="text" class="form-control col-sm-9" value="{{restaurant.google_map}}" placeholder="餐廳地圖" id="google_map" name="google_map">
+            <input type="text" class="form-control col-sm-9" placeholder="餐廳地圖" id="google_map" name="google_map">
         </div>
 
         {{!-- phone --}}
@@ -46,7 +46,7 @@
               <i class="fas fa-utensils pr-2"></i>
               電話：
             </label>
-            <input type="text" class="form-control col-sm-9" value="{{restaurant.phone}}" placeholder="餐廳電話" id="phone" name="phone" required>
+            <input type="text" class="form-control col-sm-9" placeholder="餐廳電話" id="phone" name="phone" required>
         </div>
 
         {{!-- rating --}}
@@ -55,7 +55,7 @@
               <i class="fas fa-utensils pr-2"></i>
               評分：
             </label>
-            <input type="number" min="0" max="5" step=".1" class="form-control col-sm-9" value="{{restaurant.rating}}" placeholder="評分" id="rating" name="rating" required>
+            <input type="number" min="0" max="5" step=".1" class="form-control col-sm-9" placeholder="評分" id="rating" name="rating" required>
         </div>
 
         {{!-- image --}}
@@ -64,7 +64,7 @@
               <i class="fas fa-utensils pr-2"></i>
               圖片：
             </label>
-            <input type="text" class="form-control col-sm-9" value="{{restaurant.image}}" placeholder="圖片連結" id="image" name="image" required>
+            <input type="text" class="form-control col-sm-9" placeholder="圖片連結" id="image" name="image" required>
         </div>
 
         {{!-- description --}}
@@ -73,7 +73,7 @@
               <i class="fas fa-utensils pr-2"></i>
               簡介：
             </label>
-            <textarea class="form-control col-sm-9" rows="8" placeholder="餐廳簡介" id="description" name="description" required>{{restaurant.description}}</textarea>
+            <textarea class="form-control col-sm-9" rows="8" placeholder="餐廳簡介" id="description" name="description" required></textarea>
         </div>
 
         {{!-- dubmit button --}}
