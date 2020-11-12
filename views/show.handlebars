@@ -7,7 +7,7 @@
 
       <div class="position-absolute" style="right:0px;">
         <a class="btn btn-outline-secondary btn-sm" href="/restaurants/{{restaurant._id}}/edit" role="button"><i class="fas fa-edit"></i></a>
-        <form action="/restaurants/{{restaurant._id}}/delete" method="POST" style="display: inline;">
+        <form action="/restaurants/{{restaurant._id}}/delete" method="POST" onsubmit="return deleteAlert()" style="display: inline;">
           <button class="btn btn-outline-danger btn-sm" type="submit">X</button>
         </form>
       </div>
