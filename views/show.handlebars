@@ -3,7 +3,14 @@
 <h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
 <div class="container">
   <div class="row mb-4">
-    <div class="col-12 col-md-10 mx-auto">
+    <div class="col-12 col-md-10 mx-auto position-relative">
+
+      <div class="position-absolute" style="right:0px;">
+        <a class="btn btn-outline-secondary btn-sm" href="/restaurants/{{restaurant._id}}/edit" role="button"><i class="fas fa-edit"></i></a>
+        <form action="/restaurants/{{restaurant._id}}/delete" method="POST" style="display: inline;">
+          <button class="btn btn-outline-danger btn-sm" type="submit">X</button>
+        </form>
+      </div>
 
       <p class="mb-1">
         <span class="text-secondary">
