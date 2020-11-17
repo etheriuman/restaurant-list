@@ -12,13 +12,26 @@ router.get('/', (req, res) => {
             .catch(error => console.log(error))
 })
 
+// sorting requesting
+router.get('/sort/:type/:sequence', (req, res) => {
+  const type = req.params.type
+  const sequence = req.params.sequence
+  console.log(type, sequence)
+  Restaurant.find()
+            .lean()
+            .sort({[type]: sequence})
+            .then(restaurants => res.render('index', {restaurants, css: 'index.css'}))
+            .catch(error => console.log(error))
+})
+
 // searching requesting
 router.get('/search', (req, res) => {
   let keyword = req.query.keyword.trim()
+
   // find   
   Restaurant.find({$or:[{name: new RegExp(keyword, 'i')}, {category: new RegExp(keyword, 'i')}]})
             .lean()
-            .sort({_id: 'asc'})
+            .sort({_id: asc})
             .then(restaurants => {
               // exception
               if (!restaurants.length) {
