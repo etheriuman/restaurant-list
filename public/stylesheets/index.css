@@ -10,29 +10,31 @@ header {
   color: #226089;
 }
 
+.slogan {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-family: Chalkduster, fantasy;
+  letter-spacing: 5px;
+  color: rgba(255, 255, 255, .9);
+  text-shadow: 0.1em 0.1em 0.2em black;
+  margin-top: 120px;
+}
+
 .banner {
   position: relative;
   z-index: -1;
   margin: -5px;
-  height: 360px;
+  height: 300px;
   background: #dddddd center center url('https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5720/restaurants-list-cover.jpg');
   background-size: cover;
   filter: blur(3px);
 }
 
-.search-bar .search-bar-outer {
+.search-bar {
   margin: 0 auto;
-  max-width: 680px;
-  background-color: #fce2cf;
-  border-radius: 8px;
-  padding: 20px 30px;
-  border: 0;
-  margin-top: -60px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
-
-.search-bar .search-bar-inner h4 {
-  color: #9b4b4b;
+  border-radius: 38px;
+  padding: 15px 35px;
 }
 
 .form-control::placeholder {

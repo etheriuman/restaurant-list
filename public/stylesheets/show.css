@@ -10,11 +10,22 @@ header {
   color: #226089;
 }
 
+.slogan {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-family: Chalkduster, fantasy;
+  letter-spacing: 5px;
+  color: rgba(255, 255, 255, .9);
+  text-shadow: 0.1em 0.1em 0.2em black;
+  margin-top: 120px;
+}
+
 .banner {
   position: relative;
   z-index: -1;
   margin: -5px;
-  height: 360px;
+  height: 300px;
   background: #dddddd center center url('https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5720/restaurants-list-cover.jpg');
   background-size: cover;
   filter: blur(3px);

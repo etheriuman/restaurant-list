@@ -1,6 +1,7 @@
 // insert dependencies and documents
 const express = require('express')
 const exphbs = require('express-handlebars')
+const handlebars = require('handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const routes = require('./routes')
@@ -27,6 +28,13 @@ app.use(
   routes
 )
 
+//register helper
+handlebars.registerHelper('ifEqual', function (css, targetCss, options) {
+  if (css === targetCss) {
+    return options.fn(this)
+  }
+  return options.inverse(this)
+})
 
 // --------------- localhost listenig --------------------
 app.listen(port, () => {

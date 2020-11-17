@@ -14,13 +14,15 @@
     <nav class="navbar navbar-light bg-light">
       <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png" width="30" height="30" class="d-inline-block align-top" alt="好。吃">
-            我的餐廳清單
+            <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png" width="30" height="30" class="d-inline-block align-top mr-2" alt="好。吃">
+            EAR || DIE
         </a>
         <a class="btn btn-info" href="/restaurants/new">加入新餐廳</a>
       </div>
     </nav>
-
+    {{#ifEqual css 'index.css'}}
+    <h1 class="slogan">EAT or DIE</h1>
+    {{/ifEqual}}
     <div class="banner"></div>
   </header>
   {{!-- main content --}}
