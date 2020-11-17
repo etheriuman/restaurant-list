@@ -1,4 +1,4 @@
-# Restaurant Collection
+# Restaurant Collection: EAT or DIE
   A web application that provides users to collect restaurants as well as view or edit restaurants info.
 
 
