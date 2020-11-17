@@ -1,9 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
 const Restaurant = require('../../models/restaurant')
-
-// ---------------- route setting ------------------
 
 // to create page requesting
 router.get('/new', (req, res) => {
@@ -92,4 +89,5 @@ router.delete('/:id', (req, res) => {
             .catch(error => console.log(error))
 })
 
+// export as module
 module.exports = router
