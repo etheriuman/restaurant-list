@@ -18,7 +18,6 @@ router.get('/search', (req, res) => {
   const type = req.query.type
   const sequence = req.query.sequence
   const name = req.query.name
-
   // find   
   Restaurant.find({$or:[{name: new RegExp(keyword, 'i')}, {category: new RegExp(keyword, 'i')}]})
             .lean()

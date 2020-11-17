@@ -17,12 +17,14 @@
 4. Mongoose
 5. Body-parser
 6. Nodemon
+7. Method-override
 
 - ## Features :
 1. View all collected restaurant in the index page.
 2. Checkout more restaurant information by clicking cards in the index page.
 3. Search restaurants with search bar.
 4. Edit and delete restaurants.
+5. Sort restaurants by name, location, category, and rating.
 
 - ## Application installation :
 1. ### For macOS users: open Terminal, Widows users should open Git Bash as well.
