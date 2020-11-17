@@ -16,24 +16,6 @@ router.get('/:id', (req, res) => {
             .catch(error => console.log(error))
 })
 
-// searching requesting
-router.get('/search', (req, res) => {
-  let keyword = req.query.keyword.trim()
-  // find   
-  Restaurant.find({$or:[{name: new RegExp(keyword, 'i')}, {category: new RegExp(keyword, 'i')}]})
-            .lean()
-            .sort({_id: 'asc'})
-            .then(restaurants => {
-              // exception
-              if (!restaurants.length) {
-                keyword = `你的收藏沒有"${keyword}"的相關項目唷！`
-              }
-              // do the searching
-              res.render('index', {restaurants, keyword, css: 'index.css'})
-            })
-            .catch(error => console.log(error))
-})
-
 // to edit page requesting
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id
