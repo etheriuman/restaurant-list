@@ -12,33 +12,24 @@ router.get('/', (req, res) => {
             .catch(error => console.log(error))
 })
 
-// sorting requesting
-router.get('/sort/:type/:sequence', (req, res) => {
-  const type = req.params.type
-  const sequence = req.params.sequence
-  console.log(type, sequence)
-  Restaurant.find()
-            .lean()
-            .sort({[type]: sequence})
-            .then(restaurants => res.render('index', {restaurants, css: 'index.css'}))
-            .catch(error => console.log(error))
-})
-
 // searching requesting
 router.get('/search', (req, res) => {
-  let keyword = req.query.keyword.trim()
+  let keyword = req.query.keyword? req.query.keyword.trim() : ''
+  const type = req.query.type
+  const sequence = req.query.sequence
+  const name = req.query.name
 
   // find   
   Restaurant.find({$or:[{name: new RegExp(keyword, 'i')}, {category: new RegExp(keyword, 'i')}]})
             .lean()
-            .sort({_id: asc})
+            .sort({[type]: sequence})
             .then(restaurants => {
               // exception
               if (!restaurants.length) {
                 keyword = `你的收藏沒有"${keyword}"的相關項目唷！`
               }
               // do the searching
-              res.render('index', {restaurants, keyword, css: 'index.css'})
+              res.render('index', {restaurants, keyword, type, sequence, name, css: 'index.css'})
             })
             .catch(error => console.log(error))
 })

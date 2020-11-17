@@ -15,14 +15,15 @@
     {{!-- sort options dropdown --}}
       <div class="dropdown col-12 col-sm-4 col-md-3 mx-4 mb-5 p-0">
         <a class="btn btn-outline-secondary d-flex w-100 justify-content-between" role="button" id="dropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <p class="m-0">排序</p>
+          <p class="m-0">排序: {{name}}</p>
           <p><i class="fas fa-caret-down"></i></p>
         </a>
         <ul class="dropdown-menu w-100" aria-labelledby="dropdownButton">
-          <li><a class="dropdown-item" href="/sort/name/asc">A -> Z</a></li>
-          <li><a class="dropdown-item" href="/sort/name/desc">Z -> A</a></li>
-          <li><a class="dropdown-item" href="/sort/category/asc">類別</a></li>
-          <li><a class="dropdown-item" href="/sort/location/asc">地區</a></li>
+          <li><a class="dropdown-item" href="/search/?keyword={{keyword}}&type=rating&sequence=desc&name=評分">評分</a></li>
+          <li><a class="dropdown-item" href="/search/?keyword={{keyword}}&type=name&sequence=asc&name=A到Z">A -> Z</a></li>
+          <li><a class="dropdown-item" href="/search/?keyword={{keyword}}&type=name&sequence=desc&name=Z到A">Z -> A</a></li>
+          <li><a class="dropdown-item" href="/search/?keyword={{keyword}}&type=category&sequence=asc&name=類別">類別</a></li>
+          <li><a class="dropdown-item" href="/search/?keyword={{keyword}}&type=location&sequence=asc&name=地區">地區</a></li>
         </ul>
       </div>
     </div>
