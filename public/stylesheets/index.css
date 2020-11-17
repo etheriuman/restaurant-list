@@ -32,9 +32,13 @@ header {
 }
 
 .search-bar {
-  margin: 0 auto;
-  border-radius: 38px;
+  border-radius: 0.25rem;
   padding: 15px 35px;
+}
+
+.dropdown .btn {
+  height: 38px;
+  border: 1px solid #ced4da;
 }
 
 .form-control::placeholder {
