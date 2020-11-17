@@ -1,6 +1,7 @@
 
 <!-- mian content -->
 <div class="container mt-5 justify-content-center">
+
   <div class="row justify-content-center mb-3">
     {{!-- search bar --}}
     <form action="/search" class="col-12 col-sm-4 col-md-3 mx-4 mb-5 p-0">
@@ -11,19 +12,21 @@
     </form>
     {{!-- invisable div --}}
     <div class="col-12 col-sm-4 col-md-3 mx-4 mb-5 p-0"></div>
-    {{!-- sort options --}}
-    <div class="dropdown col-12 col-sm-4 col-md-3 mx-4 mb-5 p-0">
-      <button class="btn btn-outline-secondary w-100 d-flex justify-content-between" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <p class="m-0">分類</p>
-        <p><i class="fas fa-caret-down"></i></p>
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <button class="dropdown-item" type="button">Action</button>
-        <button class="dropdown-item" type="button">Another action</button>
-        <button class="dropdown-item" type="button">Something else here</button>
+    {{!-- sort options dropdown --}}
+    <form action="/" class="col-12 col-sm-4 col-md-3 mx-4 mb-5 p-0">
+      <div class="dropdown">
+        <a class="btn btn-outline-secondary d-flex w-100 justify-content-between" role="button" id="dropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <p class="m-0">排序</p>
+          <p><i class="fas fa-caret-down"></i></p>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownButton">
+          <li><a class="dropdown-item" href="http://google.com">1</a></li>
+          <li><a class="dropdown-item" href="#">2</a></li>
+          <li><a class="dropdown-item" href="#">3</a></li>
+        </ul>
       </div>
     </div>
-  </div>
+  </form>
   
   {{!-- restaurants --}}
   <div class="row justify-content-center">
