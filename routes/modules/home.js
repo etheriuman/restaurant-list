@@ -28,7 +28,7 @@ router.get('/search', (req, res) => {
                 keyword = `你的收藏沒有"${keyword}"的相關項目唷！`
               }
               // do the searching
-              res.render('index', {restaurants, keyword, type, sequence, name, css: 'index.css'})
+              res.render('index', {restaurants, keyword, name, css: 'index.css'})
             })
             .catch(error => console.log(error))
 })
