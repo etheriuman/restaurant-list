@@ -17,19 +17,12 @@ router.get('/search', (req, res) => {
   let keyword = req.query.keyword? req.query.keyword.trim() : ''
   const type = req.query.type
   const sequence = req.query.sequence
-  const name = req.query.name
+  console.log(type, sequence)
   // find   
   Restaurant.find({$or:[{name: new RegExp(keyword, 'i')}, {category: new RegExp(keyword, 'i')}]})
             .lean()
             .sort({[type]: sequence})
-            .then(restaurants => {
-              // exception
-              if (!restaurants.length) {
-                keyword = `你的收藏沒有"${keyword}"的相關項目唷！`
-              }
-              // do the searching
-              res.render('index', {restaurants, keyword, name, css: 'index.css'})
-            })
+            .then(restaurants => res.render('index', {restaurants, keyword, type, sequence, css: 'index.css'}))
             .catch(error => console.log(error))
 })
 

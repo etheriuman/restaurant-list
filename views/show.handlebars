@@ -7,7 +7,7 @@
 
       <div class="position-absolute" style="right:0px;">
         <a class="btn btn-outline-secondary btn-sm" href="/restaurants/{{restaurant._id}}/edit" role="button"><i class="fas fa-edit"></i></a>
-        <form action="/restaurants/{{restaurant._id}}/delete" method="POST" onsubmit="return deleteAlert()" style="display: inline;">
+        <form action="/restaurants/{{restaurant._id}}/delete" method="POST" onsubmit="return webConfirm('你確定要刪除這間餐廳嗎？')" style="display: inline;">
           <button class="btn btn-outline-danger btn-sm" type="submit">X</button>
         </form>
       </div>
@@ -46,7 +46,7 @@
       <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt="{{restaurant.name}}" style="max-width: 600px;">
     </div>
     <div class="col-12 col-md-10 mx-auto text-center">
-      <a class="btn btn-secondary" href="/" role="button">回到主頁</a>
+      <a class="btn btn-outline-secondary" href="/" role="button">回到首頁</a>
     </div>
   </div>
 </div>

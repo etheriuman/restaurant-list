@@ -36,9 +36,9 @@ header {
   padding: 15px 35px;
 }
 
-.dropdown .btn {
+.btn-group .btn {
   height: 38px;
-  border: 1px solid #ced4da;
+  border: .5px solid #ced4da;
 }
 
 .form-control::placeholder {
