@@ -1,9 +1,10 @@
-// insert dependencies and documents
+// import dependencies and modules
 const express = require('express')
 const exphbs = require('express-handlebars')
 const handlebars = require('handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
+// import routes file
 const routes = require('./routes')
 
 // set express to app

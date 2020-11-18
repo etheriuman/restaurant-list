@@ -4,8 +4,8 @@ const db = require('../../config/mongoose')
 const Restaurant = require('../restaurant')
 const restaurantList = require('../../restaurant.json')
 
-  
-  // create seed data
+
+// create seed data
 db.once('open', () => {
   restaurantList.results.forEach(restaurant => {
       Restaurant.create({

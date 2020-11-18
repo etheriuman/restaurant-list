@@ -1,6 +1,8 @@
+// import express
 const express = require('express')
+// store router method
 const router = express.Router()
-
+// import Restaurant Schema
 const Restaurant = require('../../models/restaurant')
 
 // index page requesting
