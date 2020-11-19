@@ -7,7 +7,7 @@
 
       <div class="position-absolute" style="right:0px;">
         <a class="btn btn-outline-secondary btn-sm" href="/restaurants/{{restaurant._id}}/edit" role="button"><i class="fas fa-edit"></i></a>
-        <form action="/restaurants/{{restaurant._id}}/delete" method="POST" onsubmit="return webConfirm('你確定要刪除這間餐廳嗎？')" style="display: inline;">
+        <form action="/restaurants/{{restaurant._id}}?_method=DELETE" method="POST" onsubmit="return webConfirm('你確定要刪除這間餐廳嗎？')" style="display: inline;">
           <button class="btn btn-outline-danger btn-sm" type="submit">X</button>
         </form>
       </div>
